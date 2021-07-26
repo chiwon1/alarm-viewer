@@ -1,10 +1,24 @@
 import React from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateTime } from "../../../features/clock/actions";
+import { CURRENT_TIME_MESSAGE, TIME_UPDATE_INTERVAL } from "../../../features/constants";
 
 function Clock() {
+  const dispatch = useDispatch();
+
+  const { currentTime } = useSelector(state => state.clock);
+
+  useEffect(() => {
+    setInterval(() => {
+      dispatch(updateTime());
+    }, TIME_UPDATE_INTERVAL);
+  }, currentTime);
+
   return (
     <>
-      <div>현재시간</div>
-      <div>Wed Jan 04 2019 11:40:25 GMT+0900 (KST)</div>
+      <div>{CURRENT_TIME_MESSAGE}</div>
+      <div>{currentTime}</div>
     </>
   );
 }

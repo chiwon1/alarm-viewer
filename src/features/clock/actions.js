@@ -1,3 +1,5 @@
-import clockReducer from "./reducers";
+import { UPDATE_TIME } from "./types";
 
-export default clockReducer;
+export function updateTime() {
+  return { type: UPDATE_TIME };
+}
