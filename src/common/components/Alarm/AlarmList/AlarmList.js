@@ -1,12 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { events } from "../../../../mock";
+import { getLocalTime } from "../../../utils/dateUtils";
+
 
 function AlarmList() {
+  const { events } = useSelector(state => state.alarm);
+
   return (
     <>
-      <div>알람목록</div>
+      <h1>Alarm list</h1>
       <ol>
-        <li>09:30 알람1</li>
-        <li>09:45 알람2</li>
+        {events.map((event, index) => (<li key={index}>{getLocalTime(event.time)} {event.message}</li>))}
       </ol>
     </>
   );

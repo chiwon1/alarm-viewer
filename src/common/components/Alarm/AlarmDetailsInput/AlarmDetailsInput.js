@@ -1,23 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addEvent } from "../../../../features/alarm/actions";
 
 function AlarmDetailsInput() {
+  const dispatch = useDispatch();
+
+  const [eventDetails, setEventDetails] = useState({});
+
+  function onClickAddEvent() {
+    dispatch(addEvent(eventDetails));
+  }
+
   return (
     <>
-      <div>알람등록</div>
+      <h1>Add alarm</h1>
       <label>
-        시간설정:
-        <input type="date"/>
+        Time:
+        <input
+          type="datetime-local"
+          onChange={(event) => (
+            setEventDetails(prev => ({
+              ...prev,
+              time: (new Date(event.target.value)).toISOString(),
+            }))
+          )}
+        />
       </label>
       <br/>
       <label>
-        알람모드:
-        <select>
-          <option>일반</option>
-          <option>긴급</option>
+        Alarm mode:
+        <select onChange={(event) => (
+          setEventDetails(prev => ({
+            ...prev,
+            mode: event.target.value,
+          }))
+        )}>
+          <option>Normal</option>
+          <option>Urgent</option>
         </select>
       </label>
       <br/>
-      <button>알람추가</button>
+      <label>
+        Message:
+        <input
+          onChange={(event) => (
+            setEventDetails(prev => ({
+              ...prev,
+              message: event.target.value
+            }))
+          )}
+        />
+      </label>
+      <br/>
+      <button onClick={onClickAddEvent}>Save</button>
     </>
   );
 }

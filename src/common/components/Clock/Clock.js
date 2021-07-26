@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateTime } from "../../../features/clock/actions";
 import { CURRENT_TIME_MESSAGE, TIME_UPDATE_INTERVAL } from "../../../features/constants";
+import { getDay, getLocalTime } from "../../utils/dateUtils";
+
 
 function Clock() {
   const dispatch = useDispatch();
@@ -10,23 +12,30 @@ function Clock() {
   const { currentTime } = useSelector(state => state.clock);
 
   useEffect(() => {
-    setInterval(() => {
+    const timeUpdateInterval = setInterval(() => {
       dispatch(updateTime());
     }, TIME_UPDATE_INTERVAL);
-  }, currentTime);
 
-  const localTime = new Date(currentTime).toLocaleString();
+    function handleClearInterval() {
+      clearInterval(timeUpdateInterval);
+    }
+
+    return handleClearInterval;
+  }, [currentTime]);
+
+  const localTime = getLocalTime(currentTime);
+  const day = getDay(currentTime);
 
   return (
     <>
-      <div>{CURRENT_TIME_MESSAGE}</div>
-      <div>{localTime}</div>
+      <h1>{CURRENT_TIME_MESSAGE}</h1>
+      <div>{localTime} ({day})</div>
       <label>
-        시계모드:
+        Clock mode:
         <select>
-          <option>일반</option>
-          <option>진동</option>
-          <option>야간</option>
+          <option>Normal</option>
+          <option>Vibration</option>
+          <option>Night</option>
         </select>
       </label>
       <br/>
