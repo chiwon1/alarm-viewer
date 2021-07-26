@@ -15,10 +15,21 @@ function Clock() {
     }, TIME_UPDATE_INTERVAL);
   }, currentTime);
 
+  const localTime = new Date(currentTime).toLocaleString();
+
   return (
     <>
       <div>{CURRENT_TIME_MESSAGE}</div>
-      <div>{currentTime}</div>
+      <div>{localTime}</div>
+      <label>
+        시계모드:
+        <select>
+          <option>일반</option>
+          <option>진동</option>
+          <option>야간</option>
+        </select>
+      </label>
+      <br/>
     </>
   );
 }

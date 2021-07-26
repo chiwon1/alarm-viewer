@@ -8,7 +8,9 @@ function App() {
   return (
     <>
       <Clock/>
+      <br/>
       <AlarmDetailsInput/>
+      <br/><br/>
       <AlarmList/>
     </>
   );

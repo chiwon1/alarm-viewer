@@ -2,7 +2,7 @@ import { cloneDeep } from "lodash";
 import { UPDATE_TIME } from "./types";
 
 const initialState = {
-  currentTime: new Date().toLocaleString(),
+  currentTime: new Date().toISOString(),
 };
 
 export default function clockReducer(state = initialState, action) {
@@ -10,7 +10,7 @@ export default function clockReducer(state = initialState, action) {
 
   switch (action.type) {
     case UPDATE_TIME: {
-      newState.currentTime = new Date().toLocaleString();
+      newState.currentTime = new Date().toISOString();
 
       return newState;
     }
