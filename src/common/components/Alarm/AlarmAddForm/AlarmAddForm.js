@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addEvent } from "../../../../features/alarm/actions";
+import { addAlarm } from "../../../../features/alarm/actions";
 import { NORMAL, URGENT } from "../../../../features/constants";
 
 function AlarmDetailsInput() {
@@ -11,7 +11,7 @@ function AlarmDetailsInput() {
   function handleSubmit(ev) {
     ev.preventDefault();
 
-    dispatch(addEvent(eventDetails));
+    dispatch(addAlarm(eventDetails));
     setEventDetails({ mode: NORMAL });
 
     ev.target.reset();

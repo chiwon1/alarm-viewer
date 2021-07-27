@@ -1,9 +1,9 @@
-import { ADD_EVENT, DELETE_EVENT } from "./types";
+import { ADD_ALARM, DELETE_ALARM } from "./types";
 
-export function addEvent(eventDetails) {
-  return { type: ADD_EVENT, payload: eventDetails };
+export function addAlarm(eventDetails) {
+  return { type: ADD_ALARM, payload: eventDetails };
 }
 
-export function deleteEvent(id) {
-  return { type: DELETE_EVENT, id };
+export function deleteAlarm(id) {
+  return { type: DELETE_ALARM, id };
 }

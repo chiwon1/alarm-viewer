@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteEvent } from "../../../../features/alarm/actions";
+import { deleteAlarm } from "../../../../features/alarm/actions";
 import { DELETE, TURN_OFF } from "../../../../features/constants";
 import { getLocalTime } from "../../../utils/utils";
 
@@ -8,7 +8,7 @@ function AlarmListDetails({ AlarmId, AlarmTime, AlarmMessage, AlarmMode }) {
   const dispatch = useDispatch();
 
   function handleDeleteClick() {
-    dispatch(deleteEvent(AlarmId));
+    dispatch(deleteAlarm(AlarmId));
   }
 
   return (

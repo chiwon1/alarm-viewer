@@ -1,3 +1,3 @@
-export const ADD_EVENT = "alarm/ADD_EVENT";
+export const ADD_ALARM = "alarm/ADD_ALARM";
 
-export const DELETE_EVENT = "alarm/DELETE_EVENT";
+export const DELETE_ALARM = "alarm/DELETE_ALARM";
