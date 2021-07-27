@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { getLocalTime } from "../../../utils/dateUtils";
-
+import { getLocalTime } from "../../../utils/utils";
 
 function AlarmList() {
   const { events } = useSelector(state => state.alarm);

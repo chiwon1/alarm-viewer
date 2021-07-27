@@ -1,7 +1,9 @@
 import { cloneDeep } from "lodash";
 import { ADD_EVENT } from "./types";
+import { events } from '../../mock';
 
 const initialState = {
+  // events
   events: [],
 };
 
