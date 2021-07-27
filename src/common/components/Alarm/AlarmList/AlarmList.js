@@ -9,15 +9,7 @@ function AlarmList() {
     <>
       <h1>Alarm list</h1>
       <ol>
-        {events.map(({ id, time, message, mode}) => (
-          <AlarmListDetails
-            key={id}
-            AlarmId={id}
-            AlarmTime={time}
-            AlarmMessage={message}
-            AlarmMode={mode}
-          />
-        ))}
+        {events.map(({ id }) => <AlarmListDetails key={id} AlarmId={id} />)}
       </ol>
     </>
   );

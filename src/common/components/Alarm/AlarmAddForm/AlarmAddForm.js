@@ -6,13 +6,20 @@ import { NORMAL, URGENT } from "../../../../features/constants";
 function AlarmDetailsInput() {
   const dispatch = useDispatch();
 
-  const [eventDetails, setEventDetails] = useState({ mode: NORMAL });
+  const [eventDetails, setEventDetails] = useState({
+      mode: NORMAL,
+      isActivated: true,
+    });
 
   function handleSubmit(ev) {
     ev.preventDefault();
 
     dispatch(addAlarm(eventDetails));
-    setEventDetails({ mode: NORMAL });
+
+    setEventDetails({
+      mode: NORMAL,
+      isActivated: true,
+    });
 
     ev.target.reset();
   }

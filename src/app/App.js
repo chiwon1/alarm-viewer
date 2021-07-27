@@ -24,10 +24,13 @@ function App() {
 
     if (eventsToAlert.length === 0) return;
 
-    eventsToAlert.forEach(({mode, id}) => {
+    eventsToAlert.forEach(({ mode, id, isActivated }) => {
       const alarmType = alarmModeMap[clockMode][mode];
 
-      if (alarmType !== null) alert(alarmType);
+      const isAlertNeeded = alarmType !== null;
+
+      if (isAlertNeeded && isActivated) alert(alarmType);
+
       dispatch(deleteAlarm(id));
     });
   }

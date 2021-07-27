@@ -35,4 +35,10 @@ export const DELETE = "Delete";
 
 export const TURN_OFF = "Turn off";
 
+export const TURN_ON = "Turn on";
+
 export const MESSAGE = "Message";
+
+export const OFF = "Off";
+
+export const ON = "On";
