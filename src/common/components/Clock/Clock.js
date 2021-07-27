@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateTime } from "../../../features/clock/actions";
-import { CURRENT_TIME_MESSAGE, TIME_UPDATE_INTERVAL } from "../../../features/constants";
+import { changeClockMode, updateTime } from "../../../features/clock/actions";
+import { CURRENT_TIME_MESSAGE, NIGHT, NORMAL, TIME_UPDATE_INTERVAL, VIBRATION } from "../../../features/constants";
 import { getDay, getLocalTime } from "../../utils/dateUtils";
 
 
@@ -16,15 +16,15 @@ function Clock() {
       dispatch(updateTime());
     }, TIME_UPDATE_INTERVAL);
 
-    function handleClearInterval() {
-      clearInterval(timeUpdateInterval);
-    }
-
-    return handleClearInterval;
-  }, [currentTime]);
+    return () => clearInterval(timeUpdateInterval);
+  }, []);
 
   const localTime = getLocalTime(currentTime);
   const day = getDay(currentTime);
+
+  function handleChange(ev) {
+    dispatch(changeClockMode(ev.target.value));
+  }
 
   return (
     <>
@@ -32,10 +32,10 @@ function Clock() {
       <div>{localTime} ({day})</div>
       <label>
         Clock mode:
-        <select>
-          <option>Normal</option>
-          <option>Vibration</option>
-          <option>Night</option>
+        <select onChange={handleChange}>
+          <option>{NORMAL}</option>
+          <option>{VIBRATION}</option>
+          <option>{NIGHT}</option>
         </select>
       </label>
       <br/>

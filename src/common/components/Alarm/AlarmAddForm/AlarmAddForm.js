@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addEvent } from "../../../../features/alarm/actions";
+import { NORMAL, URGENT } from "../../../../features/constants";
 
 function AlarmDetailsInput() {
   const dispatch = useDispatch();
 
-  const [eventDetails, setEventDetails] = useState({ mode: "Normal" });
+  const [eventDetails, setEventDetails] = useState({ mode: NORMAL });
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function handleSubmit(ev) {
+    ev.preventDefault();
 
     dispatch(addEvent(eventDetails));
-    setEventDetails({ mode: "Normal" });
+    setEventDetails({ mode: NORMAL });
 
-    e.target.reset();
+    ev.target.reset();
   }
 
   return (
@@ -24,10 +25,10 @@ function AlarmDetailsInput() {
         <input
           required
           type="datetime-local"
-          onChange={(event) => (
+          onChange={(ev) => (
             setEventDetails(prev => ({
               ...prev,
-              time: (new Date(event.target.value)).toISOString(),
+              time: (new Date(ev.target.value)).toISOString(),
             }))
           )}
         />
@@ -36,14 +37,14 @@ function AlarmDetailsInput() {
       <label>
         Alarm mode:
         <select
-          onChange={(event) => (
+          onChange={(ev) => (
           setEventDetails(prev => ({
             ...prev,
-            mode: event.target.value,
+            mode: ev.target.value,
           }))
         )}>
-          <option value="Normal">Normal</option>
-          <option value="Urgent">Urgent</option>
+          <option value={NORMAL}>{NORMAL}</option>
+          <option value={URGENT}>{URGENT}</option>
         </select>
       </label>
       <br/>
@@ -51,10 +52,10 @@ function AlarmDetailsInput() {
         Message:
         <input
           required
-          onChange={(event) => (
+          onChange={(ev) => (
             setEventDetails(prev => ({
               ...prev,
-              message: event.target.value
+              message: ev.target.value
             }))
           )}
         />
