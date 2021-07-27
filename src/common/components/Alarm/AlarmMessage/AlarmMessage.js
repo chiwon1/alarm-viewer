@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { MESSAGE } from "../../../../features/constants";
 import { getLocalTime } from "../../../utils/utils";
+import { MESSAGE } from "../../../../features/constants";
 
 function AlarmMessage() {
   const { time, message } = useSelector(state => state.alarm.latestEventDetails);

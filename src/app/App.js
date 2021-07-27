@@ -1,13 +1,14 @@
-import React, { useRef } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import Clock from "../common/components/Clock/Clock";
 import AlarmDetailsInput from "../common/components/Alarm/AlarmAddForm/AlarmAddForm";
 import AlarmList from "../common/components/Alarm/AlarmList/AlarmList";
 import AlarmMessage from "../common/components/Alarm/AlarmMessage/AlarmMessage";
-import Clock from "../common/components/Clock/Clock";
-import { isEqualTime } from "../common/utils/utils";
+
 import { deleteAlarm } from "../features/alarm/actions";
 import { updateTime } from "../features/clock/actions";
+import { isEqualTime } from "../common/utils/utils";
 import { alarmModeMap, TIME_UPDATE_INTERVAL } from "../features/constants";
 
 function App() {

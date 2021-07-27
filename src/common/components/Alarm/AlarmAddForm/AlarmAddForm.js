@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addAlarm } from "../../../../features/alarm/actions";
-import { NORMAL, URGENT } from "../../../../features/constants";
+import { ALARM_ADD, ALARM_MODE, MESSAGE, NORMAL, SAVE, TIME, URGENT } from "../../../../features/constants";
 
 function AlarmDetailsInput() {
   const dispatch = useDispatch();
@@ -26,9 +26,9 @@ function AlarmDetailsInput() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Add alarm</h1>
+      <h1>{ALARM_ADD}</h1>
       <label>
-        Time:
+        {TIME}:
         <input
           required
           type="datetime-local"
@@ -42,7 +42,7 @@ function AlarmDetailsInput() {
       </label>
       <br />
       <label>
-        Alarm mode:
+        {ALARM_MODE}:
         <select
           onChange={(ev) => (
           setEventDetails(prev => ({
@@ -56,7 +56,7 @@ function AlarmDetailsInput() {
       </label>
       <br />
       <label>
-        Message:
+        {MESSAGE}:
         <input
           required
           onChange={(ev) => (
@@ -68,7 +68,7 @@ function AlarmDetailsInput() {
         />
       </label>
       <br />
-      <button type="submit">Save</button>
+      <button type="submit">{SAVE}</button>
     </form>
   );
 }

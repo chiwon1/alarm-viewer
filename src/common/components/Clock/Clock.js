@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeClockMode } from "../../../features/clock/actions";
-import { CURRENT_TIME_MESSAGE, NIGHT, NORMAL, VIBRATION } from "../../../features/constants";
 import { getDay, getLocalTime } from "../../utils/utils";
+import { CLOCK_MODE, CURRENT_TIME_MESSAGE, NIGHT, NORMAL, VIBRATION } from "../../../features/constants";
 
 function Clock() {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ function Clock() {
       <h1>{CURRENT_TIME_MESSAGE}</h1>
       <div>{localTime} ({day})</div>
       <label>
-        Clock mode:
+        {CLOCK_MODE}:
         <select onChange={handleChange}>
           <option>{NORMAL}</option>
           <option>{VIBRATION}</option>

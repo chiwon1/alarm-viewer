@@ -42,3 +42,13 @@ export const MESSAGE = "Message";
 export const OFF = "Off";
 
 export const ON = "On";
+
+export const ALARM_ADD = "Alarm add";
+
+export const SAVE = "Save";
+
+export const TIME = "Time";
+
+export const ALARM_MODE = "Alarm mode";
+
+export const CLOCK_MODE = "Clock mode";

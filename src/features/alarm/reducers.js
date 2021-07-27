@@ -1,9 +1,7 @@
 import { cloneDeep } from "lodash";
 import { ADD_ALARM, DELETE_ALARM, TOGGLE_ALARM_ACTIVATION } from "./types";
-import { events } from '../../mock';
 
 const initialState = {
-  // events,
   events: [],
   latestEventDetails: {}
 };

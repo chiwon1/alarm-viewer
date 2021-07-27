@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
-import { compareTime } from "../../../utils/utils";
 import AlarmListDetails from "../AlarmListDetails/AlarmListDetails";
+import { compareTime } from "../../../utils/utils";
 
 function AlarmList() {
   const { events } = useSelector(state => state.alarm);
