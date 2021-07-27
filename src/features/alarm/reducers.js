@@ -3,8 +3,8 @@ import { ADD_EVENT } from "./types";
 import { events } from '../../mock';
 
 const initialState = {
-  // events
-  events: [],
+  events
+  // events: [],
 };
 
 export default function alarmReducer(state = initialState, action) {
