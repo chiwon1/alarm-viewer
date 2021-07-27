@@ -28,7 +28,7 @@ function Clock() {
           <option>{NIGHT}</option>
         </select>
       </label>
-      <br/>
+      <br />
     </>
   );
 }

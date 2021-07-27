@@ -34,3 +34,5 @@ export const alarmModeMap = {
 export const DELETE = "Delete";
 
 export const TURN_OFF = "Turn off";
+
+export const MESSAGE = "Message";

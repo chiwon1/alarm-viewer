@@ -33,7 +33,7 @@ function AlarmDetailsInput() {
           )}
         />
       </label>
-      <br/>
+      <br />
       <label>
         Alarm mode:
         <select
@@ -47,7 +47,7 @@ function AlarmDetailsInput() {
           <option value={URGENT}>{URGENT}</option>
         </select>
       </label>
-      <br/>
+      <br />
       <label>
         Message:
         <input
@@ -60,7 +60,7 @@ function AlarmDetailsInput() {
           )}
         />
       </label>
-      <br/>
+      <br />
       <button type="submit">Save</button>
     </form>
   );

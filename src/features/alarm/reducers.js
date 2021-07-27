@@ -5,6 +5,14 @@ import { events } from '../../mock';
 const initialState = {
   // events
   events: [],
+  // latestEventDetails: {
+  //   id: 0,
+  //   time: "2021-07-26T11:05:47.849Z",
+  //   mode: "Normal",
+  //   message: "Event survey",
+  //   isTurnedOff: false
+  // }
+  latestEventDetails: {}
 };
 
 export default function alarmReducer(state = initialState, action) {
@@ -18,6 +26,8 @@ export default function alarmReducer(state = initialState, action) {
     }
 
     case DELETE_ALARM: {
+      newState.latestEventDetails = newState.events[action.id];
+
       const newEvents = [...newState.events.slice(0, action.id), ...newState.events.slice(action.id + 1)];
 
       newState.events = newEvents;
