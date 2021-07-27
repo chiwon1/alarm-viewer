@@ -1,4 +1,4 @@
-import { DAY_LIST } from "../../features/constants";
+import { DAY_LIST } from "../../constants";
 
 export function getDay(time) {
   const date = new Date(time);

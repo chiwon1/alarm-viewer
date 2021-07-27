@@ -1,5 +1,5 @@
 import { cloneDeep } from "lodash";
-import { NORMAL } from "../constants";
+import { NORMAL } from "../../constants";
 import { CHANGE_CLOCK_MODE, UPDATE_TIME } from "./types";
 
 const initialState = {

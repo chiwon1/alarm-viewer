@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addAlarm } from "../../../../features/alarm/actions";
-import { ALARM_ADD, ALARM_MODE, MESSAGE, NORMAL, SAVE, TIME, URGENT } from "../../../../features/constants";
+import { ALARM_ADD, TIME, ALARM_MODE, NOTE, SAVE, NORMAL, URGENT } from "../../../../constants";
 
 function AlarmDetailsInput() {
   const dispatch = useDispatch();
@@ -56,13 +56,13 @@ function AlarmDetailsInput() {
       </label>
       <br />
       <label>
-        {MESSAGE}:
+        {NOTE}:
         <input
           required
           onChange={(ev) => (
             setEventDetails(prev => ({
               ...prev,
-              message: ev.target.value
+              note: ev.target.value
             }))
           )}
         />

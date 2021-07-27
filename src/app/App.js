@@ -9,7 +9,7 @@ import AlarmMessage from "../common/components/Alarm/AlarmMessage/AlarmMessage";
 import { deleteAlarm } from "../features/alarm/actions";
 import { updateTime } from "../features/clock/actions";
 import { isEqualTime } from "../common/utils/utils";
-import { alarmModeMap, TIME_UPDATE_INTERVAL } from "../features/constants";
+import { alarmModeMap, TIME_UPDATE_INTERVAL } from "../constants";
 
 function App() {
   const dispatch = useDispatch();

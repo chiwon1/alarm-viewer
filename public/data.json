@@ -4,21 +4,21 @@
       "id": 0,
       "time": "2021-10-26T11:05:47.849Z",
       "mode": "Normal",
-      "message": "Event survey",
+      "note": "Event survey",
       "isActivated": "false"
     },
     {
       "id": 1,
       "time": "2021-07-31T12:35:47.849Z",
       "mode": "Urgent",
-      "message": "Party place booking",
+      "note": "Party place booking",
       "isActivated": "true"
     },
     {
       "id": 2,
       "time": "2021-09-26T13:45:47.849Z",
       "mode": "Normal",
-      "message": "Vanilla coding party",
+      "note": "Vanilla coding party",
       "isActivated": "false"
     }
   ]
