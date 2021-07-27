@@ -15,3 +15,7 @@ export function getLocalTime(time) {
 export function isEqualTime(baseDate, targetDate) {
   return new Date(baseDate).toLocaleString() === new Date(targetDate).toLocaleString();
 }
+
+export function compareTime(a, b) {
+  return new Date(a.time) - new Date(b.time);
+}

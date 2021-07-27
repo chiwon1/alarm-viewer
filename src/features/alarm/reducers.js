@@ -3,15 +3,8 @@ import { ADD_ALARM, DELETE_ALARM, TOGGLE_ALARM_ACTIVATION } from "./types";
 import { events } from '../../mock';
 
 const initialState = {
-  // events
+  // events,
   events: [],
-  // latestEventDetails: {
-  //   id: 0,
-  //   time: "2021-07-26T11:05:47.849Z",
-  //   mode: "Normal",
-  //   message: "Event survey",
-  //   isTurnedOff: false
-  // }
   latestEventDetails: {}
 };
 
