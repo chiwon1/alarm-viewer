@@ -1,10 +1,10 @@
 import { cloneDeep } from "lodash";
-import { ADD_EVENT } from "./types";
+import { ADD_EVENT, DELETE_EVENT } from "./types";
 import { events } from '../../mock';
 
 const initialState = {
-  events
-  // events: [],
+  // events
+  events: [],
 };
 
 export default function alarmReducer(state = initialState, action) {
@@ -13,6 +13,14 @@ export default function alarmReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_EVENT: {
       newState.events = [...newState.events, { ...action.payload, id: newState.events.length }];
+
+      return newState;
+    }
+
+    case DELETE_EVENT: {
+      const newEvents = [...newState.events.slice(0, action.id), ...newState.events.slice(action.id + 1)];
+
+      newState.events = newEvents;
 
       return newState;
     }

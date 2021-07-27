@@ -30,3 +30,7 @@ export const alarmModeMap = {
     [URGENT]: ALERT_MESSAGE_SOUND,
   }
 };
+
+export const DELETE = "Delete";
+
+export const TURN_OFF = "Turn off";

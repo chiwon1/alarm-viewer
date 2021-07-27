@@ -12,6 +12,7 @@ function AlarmList() {
         {events.map(({ id, time, message, mode}) => (
           <AlarmListDetails
             key={id}
+            AlarmId={id}
             AlarmTime={time}
             AlarmMessage={message}
             AlarmMode={mode}
