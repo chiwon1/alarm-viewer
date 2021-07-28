@@ -7,7 +7,7 @@ import AlarmList from "../common/components/Alarm/AlarmList/AlarmList";
 import AlarmMessage from "../common/components/Alarm/AlarmMessage/AlarmMessage";
 
 import { updateTime } from "../features/clock/actions";
-import { deleteAlarm, saveLatestAlarm } from "../features/alarm/actions";
+import { saveLatestAlarm, deleteAlarm } from "../features/alarm/actions";
 import { isEqualTime } from "../common/utils/utils";
 import { TIME_UPDATE_INTERVAL, alarmModeMap } from "../constants";
 

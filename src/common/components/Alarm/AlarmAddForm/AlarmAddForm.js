@@ -31,7 +31,6 @@ function AlarmAddForm() {
       <label>
         {LABEL_CONSTANTS.TIME}:
         <input
-          required
           type="datetime-local"
           onChange={(ev) => (
             setEventDetails(prev => ({
@@ -39,6 +38,7 @@ function AlarmAddForm() {
               time: (new Date(ev.target.value)).toISOString(),
             }))
           )}
+          required
         />
       </label>
       <label>
@@ -57,13 +57,13 @@ function AlarmAddForm() {
       <label>
         {LABEL_CONSTANTS.NOTE}:
         <input
-          required
           onChange={(ev) => (
             setEventDetails(prev => ({
               ...prev,
               note: ev.target.value
             }))
           )}
+          required
         />
       </label>
       <button type="submit">{BUTTON_CONSTANTS.SAVE}</button>

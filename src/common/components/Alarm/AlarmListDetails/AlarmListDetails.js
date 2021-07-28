@@ -1,5 +1,4 @@
-import React from "react";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { useDispatch } from "react-redux";
 
 import { deleteAlarm, toggleAlarmActivation } from "../../../../features/alarm/actions";
