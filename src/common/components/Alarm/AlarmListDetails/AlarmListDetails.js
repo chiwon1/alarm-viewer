@@ -24,13 +24,17 @@ function AlarmListDetails({ AlarmId, AlarmTime, AlarmMode, AlarmNote, IsAlarmAct
 
   return (
     <li>
-      {localTime}&nbsp;
-      ({day})&nbsp;
-      {AlarmNote}&nbsp;
-      ({AlarmMode})&nbsp;
-      {IsAlarmActivated ? `(${ON})` : `(${OFF})`}&nbsp;
-      <button onClick={handleTurnOffClick}>{IsAlarmActivated ? BUTTON_CONSTANTS.TURN_OFF : BUTTON_CONSTANTS.TURN_ON}</button>&nbsp;
-      <button onClick={handleDeleteClick}>{BUTTON_CONSTANTS.DELETE}</button>
+      {localTime}
+      ({day})
+      {AlarmNote}
+      ({AlarmMode})
+      {IsAlarmActivated ? `(${ON})` : `(${OFF})`}
+      <button onClick={handleTurnOffClick}>
+        {IsAlarmActivated ? BUTTON_CONSTANTS.TURN_OFF : BUTTON_CONSTANTS.TURN_ON}
+      </button>
+      <button onClick={handleDeleteClick}>
+        {BUTTON_CONSTANTS.DELETE}
+      </button>
     </li>
   );
 }

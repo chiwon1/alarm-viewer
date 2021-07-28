@@ -55,11 +55,8 @@ function App() {
   return (
     <>
       <Clock />
-      <br />
       <AlarmAddForm />
-      <br />
       <AlarmList />
-      <br />
       <AlarmMessage />
     </>
   );

@@ -22,7 +22,7 @@ function Clock() {
   return (
     <>
       <h1>{HEADING_CONSTANTS.CURRENT_TIME}</h1>
-      <div>{localTime}&nbsp;({day})</div>
+      <div>{localTime}({day})</div>
       <label>
         {LABEL_CONSTANTS.CLOCK_MODE}:
         <select onChange={handleChange}>
@@ -31,7 +31,6 @@ function Clock() {
           <option>{CLOCK_MODE_CONSTANTS.NIGHT}</option>
         </select>
       </label>
-      <br />
     </>
   );
 }

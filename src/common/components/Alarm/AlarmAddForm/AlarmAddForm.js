@@ -41,7 +41,6 @@ function AlarmAddForm() {
           )}
         />
       </label>
-      <br />
       <label>
         {LABEL_CONSTANTS.ALARM_MODE}:
         <select
@@ -55,7 +54,6 @@ function AlarmAddForm() {
           <option value={ALARM_MODE_CONSTANTS.URGENT}>{ALARM_MODE_CONSTANTS.URGENT}</option>
         </select>
       </label>
-      <br />
       <label>
         {LABEL_CONSTANTS.NOTE}:
         <input
@@ -68,7 +66,6 @@ function AlarmAddForm() {
           )}
         />
       </label>
-      <br />
       <button type="submit">{BUTTON_CONSTANTS.SAVE}</button>
     </form>
   );
