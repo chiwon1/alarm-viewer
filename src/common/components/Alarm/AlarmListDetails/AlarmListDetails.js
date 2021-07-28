@@ -13,7 +13,7 @@ function AlarmListDetails({ AlarmId, AlarmTime, AlarmMode, AlarmNote, IsAlarmAct
     day: getDay(AlarmTime)
   }), [AlarmTime]);
 
-  function handleTurnOffClick() {
+  function handleToggleActivationClick() {
     dispatch(toggleAlarmActivation(AlarmId));
   }
 
@@ -28,7 +28,7 @@ function AlarmListDetails({ AlarmId, AlarmTime, AlarmMode, AlarmNote, IsAlarmAct
       {AlarmNote}
       ({AlarmMode})
       {IsAlarmActivated ? `(${ON})` : `(${OFF})`}
-      <button onClick={handleTurnOffClick}>
+      <button onClick={handleToggleActivationClick}>
         {IsAlarmActivated ? BUTTON_CONSTANTS.TURN_OFF : BUTTON_CONSTANTS.TURN_ON}
       </button>
       <button onClick={handleDeleteClick}>

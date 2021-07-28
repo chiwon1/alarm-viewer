@@ -33,11 +33,13 @@ export default function alarmReducer(state = initialState, action) {
     }
 
     case TOGGLE_ALARM_ACTIVATION: {
-      const newEvent = newState.events[action.id];
+      const eventToToggleActivation = newState.events.filter(event => event.id === action.id);
 
-      newEvent.isActivated = !newEvent.isActivated;
+      eventToToggleActivation[0].isActivated = !eventToToggleActivation[0].isActivated;
 
-      newState.events[action.id] = newEvent;
+      const restEvents = newState.events.filter(event => event.id !== action.id);
+
+      newState.events = [ ...restEvents, ...eventToToggleActivation ];
 
       return newState;
     }
