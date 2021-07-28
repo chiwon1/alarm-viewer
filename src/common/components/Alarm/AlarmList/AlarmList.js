@@ -12,7 +12,16 @@ function AlarmList() {
     <>
       <h1>{ALARM_LIST}</h1>
       <ol>
-        {sortedEvents.map(({ id }) => <AlarmListDetails key={id} AlarmId={id} />)}
+        {sortedEvents.map(({ id, time, mode, note, isActivated }) => (
+          <AlarmListDetails
+            key={id}
+            AlarmId={id}
+            AlarmTime={time}
+            AlarmMode={mode}
+            AlarmNote={note}
+            IsAlarmActivated={isActivated}
+          />
+        ))}
       </ol>
     </>
   );

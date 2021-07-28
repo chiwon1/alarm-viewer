@@ -1,4 +1,4 @@
-import { cloneDeep } from "lodash";
+import { cloneDeep, uniqueId } from "lodash";
 import { ADD_ALARM, DELETE_ALARM, TOGGLE_ALARM_ACTIVATION } from "./types";
 
 const initialState = {
@@ -11,21 +11,17 @@ export default function alarmReducer(state = initialState, action) {
 
   switch (action.type) {
     case ADD_ALARM: {
-      newState.events = [
-        ...newState.events,
-        { ...action.payload, id: newState.events.length }
-      ];
+      newState.events = [...newState.events, { ...action.payload, id: uniqueId() }];
 
       return newState;
     }
 
     case DELETE_ALARM: {
-      newState.latestEventDetails = newState.events[action.id];
+      const eventToBeDeleted = newState.events.filter(event => event.id === action.id);
 
-      const newEvents = [
-        ...newState.events.slice(0, action.id),
-        ...newState.events.slice(action.id + 1)
-      ];
+      newState.latestEventDetails = eventToBeDeleted[0];
+
+      const newEvents = newState.events.filter(event => event.id !== action.id);
 
       newState.events = newEvents;
 
