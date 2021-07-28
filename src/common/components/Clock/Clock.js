@@ -3,14 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeClockMode } from "../../../features/clock/actions";
 import { getDay, getLocalTime } from "../../utils/utils";
 import { CURRENT_TIME, CLOCK_MODE, NORMAL, VIBRATION, NIGHT } from "../../../constants";
+import { useMemo } from "react";
 
 function Clock() {
   const dispatch = useDispatch();
 
   const { currentTime } = useSelector(state => state.clock);
 
-  const localTime = getLocalTime(currentTime);
-  const day = getDay(currentTime);
+  const { localTime, day } = useMemo(() => ({
+    localTime: getLocalTime(currentTime),
+    day: getDay(currentTime)
+  }), [currentTime]);
 
   function handleChange(ev) {
     dispatch(changeClockMode(ev.target.value));
