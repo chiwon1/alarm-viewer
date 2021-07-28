@@ -1,42 +1,55 @@
 export const TIME_UPDATE_INTERVAL = 1000;
-export const DAY_LIST = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
-export const CURRENT_TIME = "Current time";
-export const CLOCK_MODE = "Clock mode";
-export const NORMAL = "Normal";
-export const URGENT = "Urgent";
-export const VIBRATION = "Vibration";
-export const NIGHT = "Night";
+export const HEADING_CONSTANTS = {
+  CURRENT_TIME: "Current time",
+  ALARM_ADD: "Alarm add",
+  ALARM_LIST: "Alarm list",
+  MESSAGE: "Message"
+};
 
-export const ALARM_ADD = "Alarm add";
-export const TIME = "Time";
-export const ALARM_MODE = "Alarm mode";
-export const NOTE = "Note";
-export const SAVE = "Save";
-export const DELETE = "Delete";
-export const TURN_OFF = "Turn off";
-export const TURN_ON = "Turn on";
-export const OFF = "Off";
+export const LABEL_CONSTANTS = {
+  CLOCK_MODE: "Clock mode",
+  TIME: "Time",
+  ALARM_MODE: "Alarm mode",
+  NOTE: "Note"
+};
+
+export const BUTTON_CONSTANTS = {
+  SAVE: "Save",
+  DELETE: "Delete",
+  TURN_OFF: "Turn off",
+  TURN_ON: "Turn on",
+};
+
 export const ON = "On";
+export const OFF = "Off";
 
-export const ALARM_LIST = "Alarm list";
+export const CLOCK_MODE_CONSTANTS = {
+  NORMAL: "Normal",
+  VIBRATION: "Vibration",
+  NIGHT: "Night",
+};
 
-export const MESSAGE = "Message";
-
-export const ALERT_MESSAGE_SOUND = "Sound";
-export const ALERT_MESSAGE_VIBRATION = "Vibration";
+export const ALARM_MODE_CONSTANTS = {
+  NORMAL: "Normal",
+  URGENT: "Urgent"
+};
+export const ALERT_TYPE_CONSTANTS = {
+  SOUND: "Sound",
+  VIBRATION: "Vibration",
+};
 
 export const alarmModeMap = {
-  [NORMAL]: {
-    [NORMAL]: ALERT_MESSAGE_SOUND,
-    [URGENT]: ALERT_MESSAGE_SOUND,
+  [CLOCK_MODE_CONSTANTS.NORMAL]: {
+    [ALARM_MODE_CONSTANTS.NORMAL]: ALERT_TYPE_CONSTANTS.SOUND,
+    [ALARM_MODE_CONSTANTS.URGENT]: ALERT_TYPE_CONSTANTS.SOUND,
   },
-  [VIBRATION]: {
-    [NORMAL]: ALERT_MESSAGE_VIBRATION,
-    [URGENT]: ALERT_MESSAGE_VIBRATION,
+  [CLOCK_MODE_CONSTANTS.VIBRATION]: {
+    [ALARM_MODE_CONSTANTS.NORMAL]: ALERT_TYPE_CONSTANTS.VIBRATION,
+    [ALARM_MODE_CONSTANTS.URGENT]: ALERT_TYPE_CONSTANTS.VIBRATION,
   },
-  [NIGHT]: {
-    [NORMAL]: null,
-    [URGENT]: ALERT_MESSAGE_SOUND,
+  [CLOCK_MODE_CONSTANTS.NIGHT]: {
+    [ALARM_MODE_CONSTANTS.NORMAL]: null,
+    [ALARM_MODE_CONSTANTS.URGENT]: ALERT_TYPE_CONSTANTS.SOUND,
   }
 };

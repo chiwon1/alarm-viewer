@@ -1,11 +1,18 @@
 import React from "react";
+import { useMemo } from "react";
 import { useDispatch } from "react-redux";
+
 import { deleteAlarm, toggleAlarmActivation } from "../../../../features/alarm/actions";
-import { getLocalTime } from "../../../utils/utils";
-import { OFF, ON, TURN_OFF, TURN_ON, DELETE } from "../../../../constants";
+import { getLocalTime, getDay } from "../../../utils/utils";
+import { ON, OFF, BUTTON_CONSTANTS } from "../../../../constants";
 
 function AlarmListDetails({ AlarmId, AlarmTime, AlarmMode, AlarmNote, IsAlarmActivated }) {
   const dispatch = useDispatch();
+
+  const { localTime, day } = useMemo(() => ({
+    localTime: getLocalTime(AlarmTime),
+    day: getDay(AlarmTime)
+  }), [AlarmTime]);
 
   function handleTurnOffClick() {
     dispatch(toggleAlarmActivation(AlarmId));
@@ -17,12 +24,13 @@ function AlarmListDetails({ AlarmId, AlarmTime, AlarmMode, AlarmNote, IsAlarmAct
 
   return (
     <li>
-      {getLocalTime(AlarmTime)}&nbsp;
+      {localTime}&nbsp;
+      ({day})&nbsp;
       {AlarmNote}&nbsp;
       ({AlarmMode})&nbsp;
       {IsAlarmActivated ? `(${ON})` : `(${OFF})`}&nbsp;
-      <button onClick={handleTurnOffClick}>{IsAlarmActivated ? TURN_OFF : TURN_ON}</button>&nbsp;
-      <button onClick={handleDeleteClick}>{DELETE}</button>
+      <button onClick={handleTurnOffClick}>{IsAlarmActivated ? BUTTON_CONSTANTS.TURN_OFF : BUTTON_CONSTANTS.TURN_ON}</button>&nbsp;
+      <button onClick={handleDeleteClick}>{BUTTON_CONSTANTS.DELETE}</button>
     </li>
   );
 }

@@ -1,4 +1,4 @@
-import { DAY_LIST } from "../../constants";
+const DAY_LIST = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
 export function getDay(time) {
   const date = new Date(time);

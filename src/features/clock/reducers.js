@@ -1,10 +1,10 @@
 import { cloneDeep } from "lodash";
-import { NORMAL } from "../../constants";
+import { CLOCK_MODE_CONSTANTS } from "../../constants";
 import { CHANGE_CLOCK_MODE, UPDATE_TIME } from "./types";
 
 const initialState = {
   currentTime: new Date().toISOString(),
-  mode: NORMAL
+  mode: CLOCK_MODE_CONSTANTS.NORMAL
 };
 
 export default function clockReducer(state = initialState, action) {

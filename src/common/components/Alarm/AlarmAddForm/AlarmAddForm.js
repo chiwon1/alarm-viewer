@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addAlarm } from "../../../../features/alarm/actions";
-import { ALARM_ADD, TIME, ALARM_MODE, NOTE, SAVE, NORMAL, URGENT } from "../../../../constants";
 
-function AlarmDetailsInput() {
+import { addAlarm } from "../../../../features/alarm/actions";
+import { HEADING_CONSTANTS, LABEL_CONSTANTS, ALARM_MODE_CONSTANTS, BUTTON_CONSTANTS } from "../../../../constants";
+
+function AlarmAddForm() {
   const dispatch = useDispatch();
 
   const [eventDetails, setEventDetails] = useState({
-      mode: NORMAL,
+      mode: ALARM_MODE_CONSTANTS.NORMAL,
       isActivated: true,
     });
 
@@ -17,7 +18,7 @@ function AlarmDetailsInput() {
     dispatch(addAlarm(eventDetails));
 
     setEventDetails({
-      mode: NORMAL,
+      mode: ALARM_MODE_CONSTANTS.NORMAL,
       isActivated: true,
     });
 
@@ -26,9 +27,9 @@ function AlarmDetailsInput() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>{ALARM_ADD}</h1>
+      <h1>{HEADING_CONSTANTS.ALARM_ADD}</h1>
       <label>
-        {TIME}:
+        {LABEL_CONSTANTS.TIME}:
         <input
           required
           type="datetime-local"
@@ -42,7 +43,7 @@ function AlarmDetailsInput() {
       </label>
       <br />
       <label>
-        {ALARM_MODE}:
+        {LABEL_CONSTANTS.ALARM_MODE}:
         <select
           onChange={(ev) => (
           setEventDetails(prev => ({
@@ -50,13 +51,13 @@ function AlarmDetailsInput() {
             mode: ev.target.value,
           }))
         )}>
-          <option value={NORMAL}>{NORMAL}</option>
-          <option value={URGENT}>{URGENT}</option>
+          <option value={ALARM_MODE_CONSTANTS.NORMAL}>{ALARM_MODE_CONSTANTS.NORMAL}</option>
+          <option value={ALARM_MODE_CONSTANTS.URGENT}>{ALARM_MODE_CONSTANTS.URGENT}</option>
         </select>
       </label>
       <br />
       <label>
-        {NOTE}:
+        {LABEL_CONSTANTS.NOTE}:
         <input
           required
           onChange={(ev) => (
@@ -68,9 +69,9 @@ function AlarmDetailsInput() {
         />
       </label>
       <br />
-      <button type="submit">{SAVE}</button>
+      <button type="submit">{BUTTON_CONSTANTS.SAVE}</button>
     </form>
   );
 }
 
-export default AlarmDetailsInput;
+export default AlarmAddForm;

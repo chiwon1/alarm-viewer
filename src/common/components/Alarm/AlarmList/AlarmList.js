@@ -1,8 +1,10 @@
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
+
 import AlarmListDetails from "../AlarmListDetails/AlarmListDetails";
+
 import { compareTime } from "../../../utils/utils";
-import { ALARM_LIST } from "../../../../constants";
+import { HEADING_CONSTANTS } from "../../../../constants";
 
 function AlarmList() {
   const { events } = useSelector(state => state.alarm);
@@ -10,7 +12,7 @@ function AlarmList() {
 
   return (
     <>
-      <h1>{ALARM_LIST}</h1>
+      <h1>{HEADING_CONSTANTS.ALARM_LIST}</h1>
       <ol>
         {sortedEvents.map(({ id, time, mode, note, isActivated }) => (
           <AlarmListDetails

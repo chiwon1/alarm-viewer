@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
-import { getLocalTime } from "../../../utils/utils";
-import { MESSAGE } from "../../../../constants";
+
+import { getLocalTime, getDay } from "../../../utils/utils";
+import { HEADING_CONSTANTS } from "../../../../constants";
 
 function AlarmMessage() {
   const { time, note } = useSelector(state => state.alarm.latestEventDetails);
 
+  const { localTime, day } = useMemo(() => ({
+    localTime: getLocalTime(time),
+    day: getDay(time)
+  }), [time]);
+
   return (
     <>
-      <h1>{MESSAGE}</h1>
+      <h1>{HEADING_CONSTANTS.MESSAGE}</h1>
       {time && (
         <textarea
-          value={`${getLocalTime(time)}\n${note}`}
+          value={`${localTime}(${day})\n${note}`}
           rows="5"
           cols="40"
           readOnly

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { changeClockMode } from "../../../features/clock/actions";
-import { getDay, getLocalTime } from "../../utils/utils";
-import { CURRENT_TIME, CLOCK_MODE, NORMAL, VIBRATION, NIGHT } from "../../../constants";
-import { useMemo } from "react";
+import { getLocalTime, getDay } from "../../utils/utils";
+import { HEADING_CONSTANTS, LABEL_CONSTANTS, CLOCK_MODE_CONSTANTS } from "../../../constants";
 
 function Clock() {
   const dispatch = useDispatch();
@@ -21,14 +21,14 @@ function Clock() {
 
   return (
     <>
-      <h1>{CURRENT_TIME}</h1>
-      <div>{localTime} ({day})</div>
+      <h1>{HEADING_CONSTANTS.CURRENT_TIME}</h1>
+      <div>{localTime}&nbsp;({day})</div>
       <label>
-        {CLOCK_MODE}:
+        {LABEL_CONSTANTS.CLOCK_MODE}:
         <select onChange={handleChange}>
-          <option>{NORMAL}</option>
-          <option>{VIBRATION}</option>
-          <option>{NIGHT}</option>
+          <option>{CLOCK_MODE_CONSTANTS.NORMAL}</option>
+          <option>{CLOCK_MODE_CONSTANTS.VIBRATION}</option>
+          <option>{CLOCK_MODE_CONSTANTS.NIGHT}</option>
         </select>
       </label>
       <br />
