@@ -21,8 +21,8 @@ export const BUTTON_CONSTANTS = {
   TURN_ON: "Turn on",
 };
 
-export const ON = "On";
 export const OFF = "Off";
+export const ON = "On";
 
 export const CLOCK_MODE_CONSTANTS = {
   NORMAL: "Normal",

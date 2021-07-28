@@ -1,9 +1,9 @@
 import { cloneDeep, uniqueId } from "lodash";
-import { ADD_ALARM, DELETE_ALARM, TOGGLE_ALARM_ACTIVATION } from "./types";
+import { ADD_ALARM, DELETE_ALARM, SAVE_LATEST_ALARM, TOGGLE_ALARM_ACTIVATION } from "./types";
 
 const initialState = {
   events: [],
-  latestEventDetails: {}
+  latestEvent: {}
 };
 
 export default function alarmReducer(state = initialState, action) {
@@ -17,13 +17,17 @@ export default function alarmReducer(state = initialState, action) {
     }
 
     case DELETE_ALARM: {
-      const eventToBeDeleted = newState.events.filter(event => event.id === action.id);
-
-      newState.latestEventDetails = eventToBeDeleted[0];
-
       const newEvents = newState.events.filter(event => event.id !== action.id);
 
       newState.events = newEvents;
+
+      return newState;
+    }
+
+    case SAVE_LATEST_ALARM: {
+      const eventToBeDeleted = newState.events.filter(event => event.id === action.id);
+
+      newState.latestEvent = eventToBeDeleted[0];
 
       return newState;
     }
@@ -39,6 +43,6 @@ export default function alarmReducer(state = initialState, action) {
     }
 
     default:
-      return state;
+      return newState;
   }
 }

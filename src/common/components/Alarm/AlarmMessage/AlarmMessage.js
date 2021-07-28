@@ -5,7 +5,7 @@ import { getLocalTime, getDay } from "../../../utils/utils";
 import { HEADING_CONSTANTS } from "../../../../constants";
 
 function AlarmMessage() {
-  const { time, note } = useSelector(state => state.alarm.latestEventDetails);
+  const { time, note } = useSelector(state => state.alarm.latestEvent);
 
   const { localTime, day } = useMemo(() => ({
     localTime: getLocalTime(time),
