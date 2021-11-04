@@ -1,19 +1,6 @@
 # Alarm
 
-**React와 Redux**를 복합적으로 이용한 Single Page Application 스타일의 Alarm web application
-
-## Installation
-
-```sh
-npm install
-```
-
-## Usage
-
-```sh
-npm start
-// localhost:3000
-```
+**React와 Redux**를 복합적으로 이용한 Single Page Alarm web application
 
 ## UI example
 
@@ -45,3 +32,18 @@ npm start
 ### 시계 모드와 알람 종류에 대한 동작
 
 ![Alarm](/readme-assets/clock_alarm_mode.png)
+
+
+## Installation
+
+```sh
+npm install
+```
+
+## Usage
+
+```sh
+npm start
+// localhost:3000
+```
+
